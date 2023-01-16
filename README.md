@@ -1,14 +1,10 @@
 # RBACR
 
----
-
 针对Kubernetes中的RBAC可能被攻击检测工具，根据检查项将集群中RBAC配置存在风险的`RoleBinding`和`ClusterRoleBinding` 展示出来。
 
 ![image-20230116143257983](./images/image-20230116143257983.png)
 
 ## 安装
-
----
 
 本项目使用Github Actions自动构建二进制程序，可以去[releases](https://github.com/ZhuriLab/rbacr/releases)下载最新。
 
@@ -26,8 +22,6 @@ $ cargo build --release --locked
 
 
 ## 使用
-
----
 
 ```bash
 $ ./rbacr
