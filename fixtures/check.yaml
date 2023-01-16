@@ -1,0 +1,73 @@
+itemlist:
+  Use Nodes/proxy to communicate directly with the node's kubelet:
+    kind: All
+    rules:
+      - resources: ["nodes/proxy"]
+        verbs: ["get", "create"]
+  List Secret:
+    kind: All
+    rules:
+      - resources: ["secrets"]
+        verbs: ["get", "list"]
+  Creating Workloads:
+    kind: All
+    rules:
+      - resources: ["deployments"]
+        verbs: ["get", "list", "create", "update", "patch", "delete"]
+      - resources: ["daemonset"]
+        verbs: ["get", "list", "create", "update", "patch", "delete"]
+  Esclate verb to roles:
+    kind: All
+    rules:
+      - resources: ["roles"]
+        verbs: ["get", "list", "create", "escalate"]
+  Esclate verb to clusterroles:
+    kind: All
+    rules:
+      - resources: ["clusterroles"]
+        verbs: ["get", "list", "create", "escalate"]
+  Bind verbs:
+    kind: All
+    rules:
+      - resources: ["rolebindings"]
+        verbs: ["create"]
+      - resources: ["clusterroles"]
+        verbs: ["bind"]
+  Impersonate verbs to users:
+    kind: All
+    rules:
+      - resources: ["users"]
+        verbs: ["impersonate"]
+  Impersonate verbs to groups:
+    kind: All
+    rules:
+      - resources: ["groups"]
+        verbs: ["impersonate"]
+  Impersonate verbs to serviceaccounts:
+    kind: All
+    rules:
+      - resources: ["serviceaccounts"]
+        verbs: ["impersonate"]
+  Impersonate verbs to userextras/scopes:
+    kind: All
+    rules:
+      - resources: ["userextras/scopes"]
+        verbs: ["impersonate"]
+  CSR and issuance of certificates:
+    kind: ClusterRole
+    rules:
+      - resources: ["certificatesigningrequests"]
+        verbs: ["create", "get", "list"]
+      - resources: ["certificatesigningrequests/approval"]
+        verbs: ["update"]
+      - resources: ["certificatesigningrequests/status"]
+        verbs: ["update"]
+      - resources: ["signers"]
+        verbs: ["approve", "sign"] 
+  Creating a token request:
+    kind: All
+    rules:
+      - resources: ["serviceaccounts"]
+        verbs: ["get", "list"]
+      - resources: ["serviceaccounts/token"]
+        verbs: ["create"]
