@@ -74,7 +74,7 @@ system:kube-controller-manager               system:kube-controller-manager     
 
 ## 检测
 
-主要检测如下内容，具体利用参考文章。
+主要检测如下内容，具体利用参考文章：[K8S API访问控制之RBAC利用](https://mp.weixin.qq.com/s/emej9iAFTgr14Y_Q3-aYNA)。
 
 - Nodes/proxy
 - 列举Secret
